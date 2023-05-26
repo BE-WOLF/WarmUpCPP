@@ -203,17 +203,160 @@ void bai_19(int n, int k)
     std::cout << s;
 }
 //Bài 20: Liệt kê tất cả các “ước số” của số nguyên dương n
-void bai_20(int n)
+
+int* bai_20(int n, int &n_array)
 {
+    int* a;
+    a = new int[n];
+    int j = 0;
     for (int i = 1; i <= n; i++)
     {
         if (n % i == 0)
         {
-            std::cout << i << std::endl;
+            a[j] = i;
+            j++;
         }
     }
+    n_array = j;
+    return a;
+}
+//Bài 21: Tính tổng tất cả các “ ước số” của số nguyên dương n
+void bai_21(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        s = s + a[i];
+    }
+    std::cout << s;
+}
+//Bài 22:Tính tích tất cả các “ước số” của số nguyên dương n
+void bai_22(int n)
+{
+    int s = 1;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        s = s * a[i];
+    }
+    std::cout << s;
+}
+//Bài 23: Đếm số lượng “ước số” của số nguyên dương n
+void bai_23(int n)
+{
+    int s = 1;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    std::cout << n_array;
+}
+//Bài 24: Liệt kê tất cả các “ước số lẻ” của số nguyên dương n
+void bai_24(int n)
+{
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        if (a[i] % 2 != 0)
+        {
+            std::cout << a[i] << std::endl;
+        }
+    } 
+}
+//Bài 25: Tính tổng tất cả các “ước số chẵn” của số nguyên dương n
+void bai_25(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        if (a[i] % 2 == 0)
+        {
+            s = s + a[i];
+        }
+    }
+    std::cout << s;
+}
+//Bài 26: Tính tích tất cả các “ước số lẻ” của số nguyên dương n
+void bai_26(int n)
+{
+    int s = 1;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        if (a[i] % 2 != 0)
+        {
+            s = s * a[i];
+        }
+    }
+    std::cout << s;
+}
+//Bài 27: Đếm số lượng “ước số chẵn” của số nguyên dương n
+void bai_27(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array; i++)
+    {
+        if (a[i] % 2 == 0)
+        {
+            s++;
+        }
+    }
+    std::cout << s;
+}
+//Bài 28: Cho số nguyên dương n. Tính tổng các ước số nhỏ hơn chính nó
+void bai_28(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array - 1; i++)
+    {
+        s = s + a[i];
+    }
+    std::cout << s;
+}
+//Bài 29: Tìm ước số lẻ lớn nhất của số nguyên dương n. Ví dụ n = 100 ước lẻ lớn nhất là 25
+void bai_29(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array ; i++)
+    {
+        if (a[i] % 2 != 0)
+        {
+            s = a[i];
+       }
+    }
+    std::cout << s;
+}
+//Bài 30: Cho số nguyên dương n. Kiểm tra xem n có phải là số hoàn thiện hay không
+void bai_30(int n)
+{
+    int s = 0;
+    int n_array;
+    int* a = bai_20(n, n_array);
+    for (int i = 0; i < n_array - 1; i++)
+    {
+        s = s + a[i];
+        if (s == n && i == n_array - 2)
+        {
+            std::cout << "La so hoan thien";
+        }
+        else if (s != n && i == n_array - 2)
+        {
+            std::cout << "Khong la so hoan thien";
+        }
+    }  
 }
 int main()
 {
-    bai_20(20);
+    bai_30(30);
 }
