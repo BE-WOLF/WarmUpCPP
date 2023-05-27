@@ -356,7 +356,51 @@ void bai_30(int n)
         }
     }  
 }
+//Bài 31: Cho số nguyên dương n. Kiểm tra xem n có phải là số nguyên tố hay không
+bool bai_31(int n)
+{
+    if (n < 2)
+        return false;;
+    for (int i = 2; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+//Bài 32: Cho số nguyên dương n. Kiểm tra xem n có phải là số chính phương hay không
+bool bai_32(int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        if (i * i > n)
+        {
+            break;
+        }
+        else if (i * i == n)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+//Bài 33: Tính S(n) = CanBac2(2+CanBac2(2+….+CanBac2(2 + CanBac2(2)))) có n dấu căn
+void bai_33(int n)
+{
+    int i = 1;
+    float x;
+    float s = 0;
+    do {
+        x = sqrt(2 + s) * 1.0;
+        s = x * 1.0;
+        i++;
+    } while (i <= n);
+
+    std::cout << x;
+}
 int main()
 {
-    bai_30(30);
+    bai_33(4);
 }
